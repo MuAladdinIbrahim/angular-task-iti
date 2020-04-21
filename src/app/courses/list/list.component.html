@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-12">
+    <h3>
+      Courses list
+    </h3>
+    <hr>
+  </div>
+
+  <div class="col-12">
+    <ul class="list-group">
+      <app-items *ngFor="let course of courseData"  [courseData]="course" (courseClick)="onCourseClick($event)"
+      (click)="onCourseItemClick(course)" [routerLink]="[course.id]" queryParamsHandling='preserve'>
+      </app-items>
+    </ul>
+  </div>
+
+  <div class="col-12">
+    <nav aria-label="nav">
+      <ul class="pagination">
+          <li class="page-item" *ngFor="let page of pages; index as i" [ngClass]="{active: currentPage == i+1}" [routerLink]="['/courses']" [queryParams]="{page: i + 1}" queryParamsHandling='merge'>
+          <a class="page-link">{{i+1}}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

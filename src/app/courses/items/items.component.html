@@ -1,0 +1,5 @@
+<li class="list-group-item" [ngClass]="{'list-group-item-success': courseData.isAvailabel,
+'list-group-item-danger': !courseData.isAvailabel }" queryParamsHandling='preserve'>
+  {{courseData.title}}
+</li>
+

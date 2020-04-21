@@ -1,0 +1,29 @@
+<form #newCourseForm="ngForm" (ngSubmit)="onSubmit(newCourseForm)">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="title">Course Title</label>
+      <input type="text" class="form-control" id="title"  name="title" required [(ngModel)]='course.title' #titleRef='ngModel'>
+      <div *ngIf="titleRef.touched&&titleRef.hasError('required')" class="alert alert-danger">
+          Title is Required
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="instructor">Course Instructor</label>
+      <input type="text" class="form-control" id="instructor" name="instructor" required [(ngModel)]='course.instructor' #instructorRef='ngModel'>
+      <div *ngIf="instructorRef.touched&&instructorRef.invalid" class="alert alert-danger">
+        Instructor name is Required
+    </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="isAvailabel" class="form-check-label">Available </label>
+      <input type="checkbox" class="form-check-input" id="isAvailabel"  name="isAvailabel" [(ngModel)]='course.isAvailabel'>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-info" type="submit" [disabled]="newCourseForm.invalid">Add</button>
+  </div>
+</form>
